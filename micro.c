@@ -32,7 +32,7 @@ void	ft_execute(char **argv, int	i, int tmp_fd, char **env)
 	dup2(tmp_fd, STDIN_FILENO);
 	close(tmp_fd);
 	execve(argv[0], argv, env);
-	ft_error("Cannot execve: ", argv[0]);
+	ft_error("error: cannot execute ", argv[0]);
 	exit(1);
 }
 
@@ -52,9 +52,9 @@ int	main(int argc, char **argv, char **env)
 		if (!strcmp(argv[0], "cd"))
 		{
 			if (i != 2)
-				ft_error("Incorrect cd arguments", NULL);
+				ft_error("error: cd: bad arguments", NULL);
 			else if (chdir(argv[1]))
-				ft_error("Cannot cd to: ", argv[1]);
+				ft_error("error: cd: cannot change directory to ", argv[1]);
 		}
 		else if (i && (!argv[i] || !strcmp(argv[i], ";")))
 		{
