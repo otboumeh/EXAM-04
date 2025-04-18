@@ -85,7 +85,8 @@ int	main(int argc, char **argv, char **env)
 				tmp_fd = fd[0];				
 			}			
 		}
-		close(tmp_fd);
+		
+	}
+	close(tmp_fd);
 		return (0);
-	}	
 }
